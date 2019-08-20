@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: ideas
+      POSTGRES_PASSWORD: ideas
+      POSTGRES_DB: ideas
+      POSTGRES_INITDB_ARGS: --data-checksums
+      PGDATA: /var/lib/postgresql/data/pgdata/ideas
+    ports:
+      - "54320:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/ideas
+
+volumes:
+  pgdata:
